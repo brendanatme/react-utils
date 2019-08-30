@@ -1,2 +1,3 @@
-# react-utils
+# React Utils
+
 Reusable React Components and HOCs

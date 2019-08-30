@@ -1,0 +1,43 @@
+{
+  "name": "@brendanatme/react-utils",
+  "version": "0.0.0",
+  "description": "Reusable React Components and HOCs",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack --mode=production; serve static",
+    "build": "babel src -d dist",
+    "release": "node scripts/release.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brendanatme/react-utils.git"
+  },
+  "author": "brendanatme",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brendanatme/react-utils/issues"
+  },
+  "homepage": "https://github.com/brendanatme/react-utils#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/node": "^7.5.5",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-transform-async-to-generator": "^7.5.0",
+    "@babel/polyfill": "^7.4.4",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/register": "^7.5.5",
+    "@babel/standalone": "^7.5.5",
+    "babel-loader": "^8.0.6",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "serve": "^11.1.0",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.7"
+  },
+  "peerDependencies": {
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  }
+}
