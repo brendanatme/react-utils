@@ -14,7 +14,7 @@ const ModalButtons = ({
     </button>
 
     {overlay.isShowing && (
-      <p>Overlay!</p>
+      <p>This should be an overlay</p>
     )}
   </div>
 );
