@@ -1,6 +1,6 @@
 {
   "name": "@brendanatme/react-utils",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "description": "Reusable React Components, hooks, and HOCs",
   "main": "index.js",
   "scripts": {
