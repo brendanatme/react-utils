@@ -1,22 +1,24 @@
 import React from 'react';
-import { withOverlay } from '../src/hocs/with-overlay';
+import useToggle from '../src/hooks/use-toggle';
 
-const ModalButtons = ({
-  overlay,
-}) => (
-  <div>
-    <button onClick={overlay.show}>
-      Open Modal
-    </button>
+const ModalButtons = () => {
+  const modal = useToggle();
 
-    <button onClick={overlay.hide}>
-      Close Modal
-    </button>
+  return (
+    <div>
+      <button onClick={modal.activate}>
+        Open Modal
+      </button>
 
-    {overlay.isShowing && (
-      <p>This should be an overlay</p>
-    )}
-  </div>
-);
+      <button onClick={modal.deactivate}>
+        Close Modal
+      </button>
 
-export default withOverlay(ModalButtons);
+      {modal.isActive ? (
+        <p>This should be an overlay</p>
+      ) : ''}
+    </div>
+  );
+};
+
+export default ModalButtons;

@@ -1,1 +1,1 @@
-export { withOverlay } from './with-overlay';
+export { default as WithClickAway } from './with-click-away';

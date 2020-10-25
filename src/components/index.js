@@ -1,5 +1,1 @@
-import ShowOnMount from './show-on-mount';
-
-export {
-  ShowOnMount,
-};
+export { default as ShowOnMount } from './show-on-mount';

@@ -3,43 +3,49 @@
  *
  * show a component after it has mounted via css classes
  */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 
-export default class ShowOnMount extends React.Component {
-  state = { show: false };
+const ShowOnMount = ({
+  animClassName,
+  children,
+  className,
+  inClassName,
+  delay,
+  outClassName,
+}) => {
+  const [show, setShow] = useState(false);
 
-  /**
-   * required to wrap a next.js page
-   */
-  static async getInitialProps(ctx) {
-    const pageProps = Composed.getInitialProps
-      ? await Composed.getInitialProps(ctx)
-      : {};
-
-    return pageProps;
-  }
-
-  componentDidMount() {
-    const delay = this.props.delay || 500;
-
+  useEffect(() => {
     if (typeof window !== 'undefined') {
-      window.setTimeout(() => {
-        this.setState({ show: true });
-      }, delay);
+      window.setTimeout(() => setShow(true), delay);
     }
-  }
-
-  render() {
-    const {
-      animInClassName,
-      animOutClassName,
-      className = '',
-    } = this.props;
-
-    return (
-      <div className={`${className} ${this.state.show ? animInClassName : animOutClassName}`}>
-        {this.props.children}
-      </div>
-    );
-  }
+  }, [delay]);
+  
+  return (
+    <div
+      className={`${className} ${animClassName} ${show ? inClassName : outClassName}`}
+    >
+      {children}
+    </div>
+  );
 };
+
+ShowOnMount.propTypes = {
+  animClassName: PropTypes.string,
+  children: PropTypes.any.isRequired,
+  className: PropTypes.string,
+  delay: PropTypes.number,
+  inClassName: PropTypes.string,
+  outClassName: PropTypes.string,
+};
+
+ShowOnMount.defaultProps = {
+  animClassName: 'fade',
+  className: '',
+  delay: 0,
+  inClassName: 'fade--in',
+  outClassName: 'fade--out',
+};
+
+export default ShowOnMount;

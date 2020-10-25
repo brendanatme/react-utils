@@ -3,7 +3,7 @@
  *
  * provide a re-usable state toggle
  * useful for managing modals
- * or any or component that requires a togglable boolean state
+ * or any component that requires a toggleable boolean state
  * 
  * usage:
  * 
@@ -19,7 +19,7 @@
  */
 import { useState } from 'react';
 
-export default (activateByDefault = false) => {
+const useToggle = (activateByDefault = false) => {
   const [isActive, setIsActive] = useState(activateByDefault);
   const deactivate = () => setIsActive(false);
   const activate = () => setIsActive(true);
@@ -30,3 +30,5 @@ export default (activateByDefault = false) => {
     isActive,
   };
 };
+
+export default useToggle;
