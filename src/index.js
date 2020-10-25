@@ -11,5 +11,6 @@ export {
 
 export {
   useScreen,
+  useScroll,
   useToggle,
 } from './hooks';
