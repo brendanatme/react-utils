@@ -17,13 +17,14 @@
  *  </>
  * );
  */
-import { useEffect, useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 import debounce from 'lodash.debounce';
+import { isBrowser } from '../helpers';
 
 const useScreen = (delay = 333) => {
   const [dims, setDims] = useState({ h: 0, w: 0 });
 
-  if (typeof window === 'undefined') {
+  if (!isBrowser()) {
     return dims;
   };
 
@@ -34,7 +35,7 @@ const useScreen = (delay = 333) => {
 
   const handleResize = debounce(getAndSetDims, delay);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     getAndSetDims();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
