@@ -15,10 +15,16 @@ const ShowOnMount = ({
   outClassName,
 }) => {
   const [show, setShow] = useState(false);
+  const [timeoutId, setTimeoutId] = useState();
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      window.setTimeout(() => setShow(true), delay);
+      setTimeoutId(window.setTimeout(() => setShow(true), delay));
+    }
+    return () => {
+      if (typeof window !== 'undefined') {
+        clearTimeout(timeoutId);
+      }
     }
   }, [delay]);
   
