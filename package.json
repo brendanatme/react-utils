@@ -38,11 +38,6 @@
     "webpack": "^4.44.2",
     "webpack-cli": "^3.3.12"
   },
-  "peerDependencies": {
-    "prop-types": "^15.7.2",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0"
-  },
   "dependencies": {
     "lodash.debounce": "^4.0.8"
   }
